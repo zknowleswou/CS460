@@ -24,9 +24,9 @@
     <link rel="stylesheet" href="../styles.css">
 
     <script>
-    $(document).ready(function(){
-        $("#homeLink").attr("href", "../index.html");
-    });
+        $(document).ready(function () {
+            $("#homeLink").attr("href", "../index.html");
+        });
     </script>
 
 </head>
@@ -48,6 +48,21 @@
     </div>
     <div class="row">
         <div class="col-lg-3">
+            <h6>Off to a good start...Oh nevermind</h6>
+            <img src="../images/commandline2.PNG" style="width:100%;">
+
+            <br />
+            <br />
+            <br />
+            <h6>Smooth sailing now</h6>
+            <img src="../images/commandline.PNG" style="width:100%;">
+
+            <br />
+            <br />
+            <br />
+            <h6>Don't forget to track new files!</h6>
+            <img src="../images/commandline3.PNG" style="width:100%;">
+
         </div>
         <div class="col-lg-9">
             <h4>The goals</h4>
@@ -60,23 +75,19 @@
                 Starting with the repo will allow me to make commits as I put together my static page. I'll have a
                 chance to practice my command line skills. Lets begin.
             </p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-3"></div>
-        <div class="col-lg-9">
+
             <p>
                 First up I navigated to my folder where I want each of my homework repos to live. Then I created a
                 folder, initialized my repo and marked the folder so it would be picked up by the initial commit.
             </p>
             <div>
                 <pre><code>
-                        $ cd Documents/CS460/
-                        $ mkdir Homework1
-                        $ cd Homework1
-                        $ git init
-                        $ git add .
-                </code></pre>
+                            $ cd Documents/CS460/
+                            $ mkdir Homework1
+                            $ cd Homework1
+                            $ git init
+                            $ git add .
+                    </code></pre>
             </div>
             <p>
                 Once that was done I headed over to GitHub to see what I needed to do to create a repo and set it as my
@@ -89,11 +100,11 @@
             </p>
             <div>
                 <pre><code>
-                        $ git commit -m "Initial commit"
-                        $ git remote add origin git@github.com:zknowleswou/Homework1.git
-                        $ git push origin master
-                        $ ERROR!! -> Created an empty text file
-                </code></pre>
+                            $ git commit -m "Initial commit"
+                            $ git remote add origin git@github.com:zknowleswou/Homework1.git
+                            $ git push origin master
+                            $ ERROR!! -> Created an empty text file
+                    </code></pre>
             </div>
             <p>
                 Time to set my GitHub repo as the origin. I will be following this <a href="https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/">GitHub
@@ -105,13 +116,24 @@
             </p>
             <div>
                 <pre><code>
-                        $ git commit -m "Initial commit"
-                        $ git push origin master
-                </code></pre>
+                            $ git commit -m "Initial commit"
+                            $ git push origin master
+                    </code></pre>
             </div>
             <p>With my repo setup and accepting pushes it was time to become a <a href="https://hackertyper.net/">hacker
                     typer</a> and put together my
                 static site. My slightly esoteric subject is the Japanese hobby called Gunpla.</p>
+            <hr>
+            <h5>A few hours later...</h5>
+            <p>
+                After navigating back and forth between Gunpla reference material, the bootstrap component guide, image
+                croppers, VS code and git bash I completed my static website. The repo can be found <a href="https://github.com/zknowleswou/Homework1">here</a>.
+            </p>
+            <p>
+                Lastly, for any typos I apologise. I wrote everything in <code>&lt;p&gt;</code> tags in order to save
+                myself some time. I would promise to write all my copy in Word so that I can spell check it in the
+                future, however, life does not always give me that sort of time.
+            </p>
         </div>
     </div>
 </div>
