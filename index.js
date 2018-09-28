@@ -3,12 +3,28 @@ console.log("test");
 //Global variables are bad
 var profileCards = [
     {
-        fileName: "./images/Zach1-min.jpg",
+        fileName: "./images/portugal2.jpg",
         description: "This day I was in Vianna Do Castelo enjoying some sun with my German friend."
     },
     {
-        fileName: "./images/Zach2.jpg",
+        fileName: "./images/sanfrancisco.jpg",
         description: "This day I got married in San Francisco."
+    },
+    {
+        fileName: "./images/japan.jpg",
+        description: "This day I discovered I am too big for Japan."
+    },
+    {
+        fileName: "./images/newzealand.jpg",
+        description: "This day I was blinded by the sun in New Zealand."
+    },
+    {
+        fileName: "./images/portugal.jpg",
+        description: "This day I ate a tasty steak in Porto, Portugal."
+    },
+    {
+        fileName: "./images/austria.jpg",
+        description: "This day I saw an incredible palace in Vienna, Austria."
     }
 ];
 
