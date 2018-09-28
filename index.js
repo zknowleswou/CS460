@@ -8,7 +8,7 @@ var profileCards = [
     },
     {
         fileName: "./images/Zach2.jpg",
-        description: "This day I got married in San Francisco"
+        description: "This day I got married in San Francisco."
     }
 ];
 
