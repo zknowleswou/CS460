@@ -3,13 +3,43 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
 
-    <title>Home</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+    <script src="index.js"></script>
+  <title>Home</title>
+  <script>
+      $(function () {
+          $("#navImport").load("nav.html");
+      });
+  </script>
 
 </head>
-<h1>Test</h1>
+<div id="navImport"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="./images/Zach1-min.jpg" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">This is me. I tend to change places when you refresh your browser.
+            <span id="currentLocation"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <body>
 </body>
