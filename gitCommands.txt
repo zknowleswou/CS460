@@ -1,0 +1,14 @@
+Helpful git commands
+ssh-agent -s
+git init .
+git add .gitignore
+git remote add origin *origin address*
+git remote -v
+git status
+git add --all
+git commit -m "message"
+git push origin *branch name*
+git branch *branch name*
+git checkout *branch name*
+git checkout -b *branch name*
+git merge *branch name*
