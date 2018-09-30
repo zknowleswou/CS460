@@ -48,8 +48,13 @@
     </div>
     <div class="row">
         <div class="col-lg-3">
-            <h6>Off to a good start...Oh nevermind</h6>
-            <img src="../images/commandline2.PNG" style="width:100%;">
+            <h6>We meet again git BASH</h6>
+            <img src="./hw2commandline1.PNG" style="width:100%;">
+            <br>
+            <br>
+            <br>
+            <h6>We've got a feature branch</h6>
+            <img src="./hw2commandline2.PNG" style="width:100%;">
 
         </div>
         <div class="col-lg-9">
@@ -86,20 +91,174 @@
                 I spent some time thinking about what I could do with jQuery. Naturally all of my first ideas where
                 pretty funny. Then I thought of something useful. The most error prone part of this class so far is
                 putting together these blog posts. Maybe I could make that a little easier on myself? I decided I was
-                going to make myself a tool that I could use to write this posts and do some basic formatting on them.
-                Then I was going to create an export tool so I can create the post there and simply copy and past my
+                going to make myself a tool that I could use to write these posts and do some basic formatting on them.
+                Then I was going to create an export tool so I can create the post there and simply copy and paste my
                 post into this html file. The following marks the point at which I switched over to the tool I created.
                 If there is nothing after the line, I have clearly failed.
             </p>
             <hr />
+            <h4>Hello, world!</h4>
+            <p>This is my first attempt at using my new tool. I am going to leave it exactly how it comes in the blog
+                post. Poor formatting or any other issues will be left in. However, you the reader may get lucky and I
+                might have done a pretty good job on the first pass.
+
+                Lets take a look and see how we got here:</p>
             <div>
                 <pre><code>
-                    &lt;test&gt;This is some code&lt;test&gt;
-                    more code
-                    then more code
-                    &lt;final test&gt;
-                    </code></pre>
+createHeader: function () {
+        var elementId = elementStore.createElement("header");
+        var html = `
+    &lt;div id="element_${elementId}" class="card"&gt;
+            &lt;div class="card-body"&gt;
+                &lt;h6 class="card-subtitle mb-2 text-muted"&gt;Heading&lt;/h6&gt;
+                &lt;textarea id="element_${elementId}_val" style="width:100%;"&gt;&lt;/textarea&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    `;
+
+        $("#buildElementList").append(html);
+        $(`#element_${elementId}_val`).focus();
+    },
+</code></pre>
             </div>
+            <p>This function is a property of my <code>elementBuilder</code> object. It lives inside the <code>builder.js</code>
+                file. The <code>elementBuilder</code> contains templates for each of the elements i have available on
+                my build button bar. When one of the buttons is clicked the <code>elementBuilder</code> makes a call to
+                <code>elementStore</code> to get an id for the element and store that id for later use.
+
+                Let's break here and see how the tool works. I will make some tweaks if it has issues and add a few
+                more features.</p>
+            <div>
+                <img src="./blogbuilder1.PNG" style="width:100%;">
+            </div>
+            <h4>Discoveries!</h4>
+            <p>My first pass worked a lot better than expected. I did notice a few things that I wanted to improve.
+                First, line endings are not saved on the paragraph elements. This is ok because I can just create a new
+                <code>&lt;p&gt;</code> if I want a new line. A bigger issue was being able to go back and edit my work
+                if needed.</p>
+            <p>I decided I was going to use <code>localStorage</code> and started work on that. I quickly found that
+                local storage does not work for websites loaded as files from the filesystem. Not a problem though. A
+                simple import/export system will work just fine. Let's take a look at how I implemented that.</p>
+            <div>
+                <pre><code>
+    &lt;div id="importExportPanel" class="row"&gt;
+        &lt;div class="col-lg-12"&gt;
+            &lt;h3 style="display:inline-block;margin-right: 50px;"&gt;Import/Export&lt;/h3&gt;
+            &lt;div style="display: inline-block;text-align: right;"&gt;
+                &lt;button id="exportBtn" class="btn btn-primary btn-sm" style="margin-right:30px;"&gt;Export&lt;/button&gt;
+                &lt;button id="importBtn" class="btn btn-primary btn-sm"&gt;Import&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="col-lg-12"&gt;
+            &lt;textarea id="importExportValue" style="width:100%;min-height:50vh;"&gt;&lt;/textarea&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+</code></pre>
+            </div>
+            <div>
+                <pre><code>
+    exportWorkspace: function () {
+        var workspaceString = JSON.stringify(this.createElementArray());
+        $("#importExportValue").val(workspaceString);
+    }
+</code></pre>
+            </div>
+            <p>It was very simple to export my current workspace. I was already storing a representation of the blog
+                post in an array. So all I had to do was get the array and call <code>JSON.stringyfy()</code>.</p>
+            <h4>Where are the values?</h4>
+            <p>Oops. I was not storing the values of each element in my array. That's ok though, I used a very simple
+                element id pattern so it was easy to fetch using the jQuery selector.</p>
+            <div>
+                <pre><code>
+    createElementArray: function () {
+        var elementArray = [];
+        this.elements.forEach(element =&gt; {
+            elementArray.push({
+                type: element.type,
+                value: $(`#element_${element.elementId}_val`).val()
+            });
+        });
+
+        return elementArray;
+    }
+</code></pre>
+            </div>
+            <h4>What about the import?</h4>
+            <p>I can now save my workspace in a text file. What about when I want to open it up and make some changes?
+                This required a little bit more work. It was not too bad though, I was already using functions to
+                create my elements. I just needed to use those functions again. One change I had to make was to have my
+                create element functions return the element id so that i could use a selector to set its value.</p>
+            <div>
+                <pre><code>
+    importWorkspace: function () {
+        var importString = $("#importExportValue").val();
+        if (importString.length === 0 || importString === "[]")
+            return;
+
+        $("#buildElementList").html("");    
+        var workspace = JSON.parse(importString);
+
+        this.elements = [];
+
+        workspace.forEach(element =&gt; {
+            var elementId = elementBuilder.createElement(element.type);
+            console.log(elementId);
+            $(`#element_${elementId}_val`).val(element.value);
+        });
+
+        $("#buildBtn").click();
+    }
+</code></pre>
+                <div>
+                    <img src="./blogbuilder2.PNG" style="width:100%;margin-top: 50px;margin-bottom: 50px;">
+                </div>
+            </div>
+            <h4>Navigation</h4>
+            <p>Navigation was done using simple hide/show calls on content <code>div</code>s. I added in add/remove
+                class calls on the tab navigation too. This logic lives in my <code>events.js</code> file.</p>
+            <div>
+                <pre><code>
+    $("#buildBtn").on("click", function () {
+        $("#buildPanel").show();
+        $("#buildBtn").addClass("active");
+
+        $("#rawPanel").hide();
+        $("#rawBtn").removeClass("active");
+
+        $("#importExportPanel").hide();
+        $("#importExportBtn").removeClass("active");
+    })
+</code></pre>
+            </div>
+            <p>There is some code duplication in there, but for a project this small we are going to let that go.</p>
+            <h4>Did I cover everything?</h4>
+            <p>No, I did not. There is a lot to cover and I just wanted to go over some of the more important items in
+                detail. Here is a list of things, which I have to make by hand because I didnt include a <code>&lt;ul&gt;</code>
+                template, that I skipped.</p>
+            <div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Styles - I didn't do much styling. Just a little to move things around.</li>
+                    <li class="list-group-item">Click events - Really simple. Just hooked them on pageload in <code>events.js</code></li>
+                    <li class="list-group-item">OOP JS - I used a basic singleton object design e.g. <code>var elementStore = {</code></li>
+                    <li class="list-group-item">jQuery selectors - I only used the id selector. I kept my design
+                        simple.</li>
+                </ul>
+            </div>
+            <h4>Where are the comments?</h4>
+            <p>I didnt write any comments. Typically I try to write my code in a human readable format using
+                descriptive variable and function names. As the code changes over time comments quickly become out of
+                date and can be totally incorrect. As such, comments are best saved for complicated code or business
+                logic and used sparingly. I understand that in this class I need to go back and add comments in to
+                explain my thought process. I will do so in a later commit.</p>
+            <h4>What next?</h4>
+            <p>Using my builder to write the blog post actually proved really useful. It saved me a considerable amount
+                of time. Looking ahead in the course syllabus I can see several opportunities to improve upon it.
+                Adding a DB backend to save/load instead of import/export would be really nice. I want to add in a
+                feature that will allow me to rearrange each element as I go. This way I could go back and insert a
+                picture or change the order of elements. Finally, I would like to write a <code>JavaScript</code> file
+                that can parse my export <code>JSON</code>. That would remove the manual setup of copying the raw
+                output over to my blog post <code>html</code> file. </p>
         </div>
     </div>
 </div>

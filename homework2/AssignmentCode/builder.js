@@ -11,6 +11,8 @@ var elementBuilder = {
     `;
 
         $("#buildElementList").append(html);
+        $(`#element_${elementId}_val`).focus();
+        return elementId;
     },
     createParagraph: function () {
         var elementId = elementStore.createElement("paragraph");
@@ -24,6 +26,8 @@ var elementBuilder = {
     `;
 
         $("#buildElementList").append(html);
+        $(`#element_${elementId}_val`).focus();
+        return elementId;
     },
     createCodeBlock: function () {
         var elementId = elementStore.createElement("codeBlock");
@@ -37,6 +41,35 @@ var elementBuilder = {
     `;
 
         $("#buildElementList").append(html);
+        $(`#element_${elementId}_val`).focus();
+        return elementId;
+    },
+    createImage: function () {
+        var elementId = elementStore.createElement("image");
+        var html = `
+    <div id="element_${elementId}" class="card">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">Image</h6>
+                <input type="text" id="element_${elementId}_val" style="width:100%;"/>
+            </div>
+        </div>
+    `;
+
+        $("#buildElementList").append(html);
+        $(`#element_${elementId}_val`).focus();
+        return elementId;
+    },
+    createElement: function (type) {
+        switch (type) {
+            case "header":
+                return this.createHeader();
+            case "paragraph":
+                return this.createParagraph();
+            case "codeBlock":
+                return this.createCodeBlock();
+            case "image":
+                return this.createImage();
+        }
     },
     generateRawOutput: function () {
         var rawOutput = $("#rawOutput");
@@ -46,13 +79,16 @@ var elementBuilder = {
             var rawElement;
             switch (element.type) {
                 case "header":
-                rawElement = `<h4>${$(`#element_${element.elementId}_val`).val()}</h4>`;
+                    rawElement = `<h4>${$(`#element_${element.elementId}_val`).val()}</h4>`;
                     break;
                 case "paragraph":
-                rawElement = `<p>${$(`#element_${element.elementId}_val`).val()}</p>`;
+                    rawElement = `<p>${$(`#element_${element.elementId}_val`).val()}</p>`;
                     break;
                 case "codeBlock":
-                rawElement = `<div><pre><code>\n${this.formatCodeBlock($(`#element_${element.elementId}_val`).val())}\n</code></pre></div>`;
+                    rawElement = `<div><pre><code>\n${this.formatCodeBlock($(`#element_${element.elementId}_val`).val())}\n</code></pre></div>`;
+                    break;
+                case "image":
+                    rawElement = `<img src="./${$(`#element_${element.elementId}_val`).val()}" style="width:100%;"/>`;
                     break;
 
             }
@@ -60,7 +96,7 @@ var elementBuilder = {
             rawOutput.append("\n");
         });
     },
-    formatCodeBlock: function(codeBlock){
+    formatCodeBlock: function (codeBlock) {
         var formattedBlock = codeBlock;
         formattedBlock = formattedBlock.replace(/</g, "&lt;");
         formattedBlock = formattedBlock.replace(/>/g, "&gt;");
