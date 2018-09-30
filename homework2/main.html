@@ -55,24 +55,51 @@
         <div class="col-lg-9">
             <h4>The Goals</h4>
             <p>
-                This assignment we are to become familiar with Git using the command line. In order to get there we are
-                to create a new repo using the command line. After that we will build a static website to demonstrate
-                our ability to use HTML/CSS and bootstrap.
-            </p>
-            <p>
-                Starting with the repo will allow me to make commits as I put together my static page. I'll have a
-                chance to practice my command line skills. Lets begin.
+                This week is JavaScript week. We are to get comfortable with JavaScript and jQuery. At the same time we
+                are supposed to be learning about branching with git. I am going to start with git. Time to create a
+                new branch.
             </p>
             <h4>But first: Keys please</h4>
             <p>
                 I mentioned in my last post that I was having to enter my ssh passphrase on every git action that
                 communitcated with the remote service. This was annoying. I decided that I had enough time to take a
-                detour and fix up that problem. I had my key created, signed and in github i just needed it in my local
+                detour and fix that problem. I had my key created, signed and in github i just needed it in my local
                 ssh agent store. Last week I got the agent running but I had no idea how close was to getting the key
                 in the store. All I had to do was run <code>ssh-add -k</code> and enter my passphrase. Now my
                 passphrase is remembered it's time to continue on with the assignment.
             </p>
-
+            <h4>Ok, seriously time for a branch</h4>
+            <p>
+                Branching is very straight forward. I went to the <a href="https://git-scm.com/">git-scm</a> website
+                and read their sections on branching. I took a peak at the section on merging too while I was there.
+                With that done, I ran the following commands to get my workspace setup.
+            </p>
+            <div>
+                <pre><code>
+                            $ git branch homework2
+                            $ git checkout homework2
+                            $ git push origin homework2
+                    </code></pre>
+            </div>
+            <h4>Planning</h4>
+            <p>
+                I spent some time thinking about what I could do with jQuery. Naturally all of my first ideas where
+                pretty funny. Then I thought of something useful. The most error prone part of this class so far is
+                putting together these blog posts. Maybe I could make that a little easier on myself? I decided I was
+                going to make myself a tool that I could use to write this posts and do some basic formatting on them.
+                Then I was going to create an export tool so I can create the post there and simply copy and past my
+                post into this html file. The following marks the point at which I switched over to the tool I created.
+                If there is nothing after the line, I have clearly failed.
+            </p>
+            <hr />
+            <div>
+                <pre><code>
+                    &lt;test&gt;This is some code&lt;test&gt;
+                    more code
+                    then more code
+                    &lt;final test&gt;
+                    </code></pre>
+            </div>
         </div>
     </div>
 </div>
