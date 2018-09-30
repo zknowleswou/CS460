@@ -55,6 +55,11 @@
             <br>
             <h6>We've got a feature branch</h6>
             <img src="./hw2commandline2.PNG" style="width:100%;">
+            <br>
+            <br>
+            <br>
+            <h6>That looks like a merge to me</h6>
+            <img src="./hw2commandline3.PNG" style="width:100%;">
 
         </div>
         <div class="col-lg-9">
@@ -243,7 +248,8 @@ createHeader: function () {
                     <li class="list-group-item">OOP JS - I used a basic singleton object design e.g. <code>var elementStore = {</code></li>
                     <li class="list-group-item">jQuery selectors - I only used the id selector. I kept my design
                         simple.</li>
-                    <li class="list-group-item">Wireframe - I knew my design was going to be simple. I wireframed directly in <code>html</code>.</li>
+                    <li class="list-group-item">Wireframe - I knew my design was going to be simple. I wireframed
+                        directly in <code>html</code>.</li>
                 </ul>
             </div>
             <h4>Where are the comments?</h4>
@@ -260,6 +266,29 @@ createHeader: function () {
                 picture or change the order of elements. Finally, I would like to write a <code>JavaScript</code> file
                 that can parse my export <code>JSON</code>. That would remove the manual setup of copying the raw
                 output over to my blog post <code>html</code> file. </p>
+            <h4>Merge me in, Scotty!</h4>
+            <p>I'm getting the hang of this whole command line thing. Here is how easy the merge was starting from my
+                final commit.</p>
+            <div>
+                <pre><code>
+$ git add --all
+$ git commit -m "My message"
+$ git push origin homework2
+$ git checkout master
+$ git merge homework2
+$ git push origin master
+</code></pre>
+            </div>
+            <p>It worked like a charm first time.</p>
+            <h4>Conclusion</h4>
+            <p>Once git is setup, its quite easy to work with. That initial setup can be a pain though. The JS/jQuery
+                stuff was easy because I have done a lot of it before. I had a lot of fun making it though. I am very
+                pleased with my final product. It does exactly what i need it to do and I will continue to use it for
+                my blog posts throughout the term. The biggest reason I wanted to build it is because chrome has built
+                in spell check in text boxes. Now i don't have to copy and past my paragraphs between word and VSCode!
+                While I consider this weeks assignment code complete I will continue to make some tweaks throughout the
+                week. Those tweaks will not be covered on this post but can be viewed in my commit history. That's it
+                for this week.</p>
         </div>
     </div>
 </div>
