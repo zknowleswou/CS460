@@ -1,0 +1,86 @@
+[
+    {
+        "type": "header",
+        "value": "A simple translation"
+    },
+    {
+        "type": "paragraph",
+        "value": "For this assignment the goal is to get familiar with C# by translating a simple Java console app. No new git commands today, just reinforcing the ones learned over the past weeks. I am getting started by creating empty class files for each of the classes I need to translate."
+    },
+    {
+        "type": "image",
+        "value": "solution.PNG"
+    },
+    {
+        "type": "paragraph",
+        "value": "With those created, its time to fill them out in the recommended order. Another montage?"
+    },
+    {
+        "type": "header",
+        "value": "Node.cs"
+    },
+    {
+        "type": "image",
+        "value": "node.PNG"
+    },
+    {
+        "type": "header",
+        "value": "IQueueInterface.cs"
+    },
+    {
+        "type": "image",
+        "value": "interface.PNG"
+    },
+    {
+        "type": "header",
+        "value": "QueueUnderflowException.cs"
+    },
+    {
+        "type": "image",
+        "value": "exception.PNG"
+    },
+    {
+        "type": "header",
+        "value": "LinkedQueue.cs"
+    },
+    {
+        "type": "image",
+        "value": "linkedqueue.PNG"
+    },
+    {
+        "type": "header",
+        "value": "Program.cs"
+    },
+    {
+        "type": "image",
+        "value": "main.PNG"
+    },
+    {
+        "type": "header",
+        "value": "Time to test"
+    },
+    {
+        "type": "paragraph",
+        "value": "With those done it is time to test the console app. Pretty straight forward."
+    },
+    {
+        "type": "image",
+        "value": "consoleoutput.PNG"
+    },
+    {
+        "type": "paragraph",
+        "value": "Hey it works! With that done I am going to wrap up by merging my feature branch in and tidying up this post. Of course I built this using last weeks homework assignment again!"
+    },
+    {
+        "type": "image",
+        "value": "blogbuilder.PNG"
+    },
+    {
+        "type": "header",
+        "value": "Closing thoughts"
+    },
+    {
+        "type": "paragraph",
+        "value": "A very simple assignment today. There are some things I should add to my builder to make this easier and look a bit nicer. The only thing I forgot I needed to do was put <code>&lt;T&gt;</code> at the top of my <code>LinkedQueue.cs</code> class. See you next week."
+    }
+]

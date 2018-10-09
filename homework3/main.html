@@ -1,0 +1,88 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <title>CS460 - HW3</title>
+
+    <script>
+        $(function () {
+            $("#navImport").load("../nav.html");
+        });
+    </script>
+
+    <link rel="stylesheet" href="../styles.css">
+
+    <script>
+        $(document).ready(function () {
+            $("#homeLink").attr("href", "../index.html");
+        });
+    </script>
+
+</head>
+
+<div class="container accent" style="min-height: 100vh;">
+    <div id="navImport"></div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Homework 3</h1>
+            <h5>
+                <small class="text-muted">Java to C# translation</small>
+            </h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            &nbsp;
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <h6>Will we put anythere here today?</h6>
+            <p>Nah.</p>
+        </div>
+        <div class="col-lg-9">
+            <h4>A simple translation</h4>
+            <p>For this assignment the goal is to get familiar with C# by translating a simple Java console app. No new
+                git commands today, just reinforcing the ones learned over the past weeks. I am getting started by
+                creating empty class files for each of the classes I need to translate.</p>
+            <img src="./solution.PNG" style="width:100%;" />
+            <p>With those created, its time to fill them out in the recommended order. Another montage?</p>
+            <h4>Node.cs</h4>
+            <img src="./node.PNG" style="width:100%;" />
+            <h4>IQueueInterface.cs</h4>
+            <img src="./interface.PNG" style="width:100%;" />
+            <h4>QueueUnderflowException.cs</h4>
+            <img src="./exception.PNG" style="width:100%;" />
+            <h4>LinkedQueue.cs</h4>
+            <img src="./linkedqueue.PNG" style="width:100%;" />
+            <h4>Program.cs</h4>
+            <img src="./main.PNG" style="width:100%;" />
+            <h4>Time to test</h4>
+            <p>With those done it is time to test the console app. Pretty straight forward.</p>
+            <img src="./consoleoutput.PNG" style="width:100%;" />
+            <p>Hey it works! With that done I am going to wrap up by merging my feature branch in and tidying up this
+                post. Of course I built this using last weeks homework assignment again!</p>
+            <img src="./blogbuilder.PNG" style="width:100%;" />
+            <h4>Closing thoughts</h4>
+            <p>A very simple assignment today. There are some things I should add to my builder to make this easier and
+                look a bit nicer. The only thing I forgot I needed to do was put <code>&lt;T&gt;</code> at the top of
+                my <code>LinkedQueue.cs</code> class. See you next week.</p>
+        </div>
+    </div>
+</div>
+
+<body>
+</body>
+
+</html>
