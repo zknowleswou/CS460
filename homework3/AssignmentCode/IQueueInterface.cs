@@ -17,6 +17,7 @@ namespace Homework3
 
         /// <summary>
         /// Remove and return the front element.
+        /// </summary>
         /// <returns>Returns next element and removes it from the queue</returns>
         T Pop();
 
