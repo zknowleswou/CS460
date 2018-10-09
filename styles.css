@@ -5,3 +5,7 @@ body{
 .container accent{
     background-color:#f7f9fc;
 }
+
+img{
+    margin-bottom: 20px;
+}
