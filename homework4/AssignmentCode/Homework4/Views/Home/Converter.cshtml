@@ -6,33 +6,53 @@
     }
 
     <h2>Converter</h2>
-    <div class="row">
-        <form>
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <label for="miles">Email address</label>
-                    <input type="number" class="form-control" id="miles" placeholder="Miles">
-                </div>
+<div class="row">
+    <form action="/Home/Converter" method="GET">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label for="miles">Email address</label>
+                <input type="number" name="miles" class="form-control" id="miles" placeholder="Miles">
             </div>
-            <div class="col-lg-6">
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="unit1" id="unit1" value="kilometers" checked>
-                        Kilometers
-                    </label>
-                </div>
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="unit2" id="unit2" value="option2">
-                        Option two can be something else and selecting it will deselect option one
-                    </label>
-                </div>
-                <div class="radio disabled">
-                    <label>
-                        <input type="radio" name="unit3" id="unit3" value="option3" disabled>
-                        Option three is disabled
-                    </label>
-                </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="units" id="unit1" value="millimeter" checked>
+                    Millimeters
+                </label>
             </div>
-        </form>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="units" id="unit2" value="centimeter">
+                    Centimeters
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="units" id="unit3" value="meter">
+                    Meters
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="units" id="unit4" value="kilometer" checked>
+                    Kilometers
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">&nbsp;</div>
+        </div>
+        <div class="col-lg-12">
+            <input type="submit" value="Convert" class="btn btn-primary"/>
+        </div>
+    </form>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        @if (ViewBag.ConversionResult != null)
+        {
+            @ViewBag.ConversionResult
+        }
     </div>
+</div>

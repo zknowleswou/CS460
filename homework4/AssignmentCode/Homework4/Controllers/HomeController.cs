@@ -30,23 +30,28 @@ namespace Homework4.Controllers
         }
 
         [HttpGet]
-        public ActionResult Converter()
+        [Route("Converter")]
+        public ActionResult Converter(decimal miles = 0, string units = "")
         {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Converter(decimal miles, string units)
-        {
-            var multiplier = 0m;
+            var conversion = 0m;
             switch (units)
             {
-                case  "Kilometers":
-                    multiplier = 1.60934m;
+                case "millimeter":
+                    conversion = Math.Round(1.60934m * 1000000 * miles, 3);
+                    break;
+                case "centimeter":
+                    conversion = Math.Round(1.60934m * 100000 * miles, 3);
+                    break;
+                case "meter":
+                    conversion = Math.Round(1.60934m * 1000 * miles, 3);
+                    break;
+                case "kilometer":
+                    conversion = Math.Round(1.60934m * miles, 3);
                     break;
             }
 
-            ViewBag.ConversionResult = $"{miles} Miles is equal to ${multiplier * miles}";
+            if (conversion != 0)
+                ViewBag.ConversionResult = $"{miles} mile(s) is equal to {conversion} {units}(s)";
 
             return View();
         }
