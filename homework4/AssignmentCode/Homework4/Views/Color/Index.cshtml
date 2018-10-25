@@ -1,0 +1,47 @@
+﻿@model Homework4.Models.ColorMixModel
+
+@{
+    ViewBag.Title = "Color Mixer";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<h2>Color Mixer</h2>
+<div class="row">
+    <div class="col-lg-12">
+        @using (Html.BeginForm("Post", "Color", FormMethod.Post))
+        {
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+                <label for="firstColor">First Color</label>
+                @*<input type="number" name="PrimaryColor" class="form-control" id="firstColor" placeholder="First Color">*@
+                @Html.TextBoxFor(x => x.PrimaryColor, new { @class = "form-control", @placeholder = "First Color", required=true })
+            </div>
+            <div class="form-group">
+                <label for="secondaryColor">Second Color</label>
+                @Html.TextBoxFor(x => x.SecondaryColor, new { @class = "form-control", @placeholder = "Second Color", required = true })
+            </div>
+            <div class="col-lg-12">
+                <input type="submit" value="Mix" class="btn btn-primary" />
+            </div>
+        }
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">&nbsp;</div>
+</div>
+@if (!string.IsNullOrWhiteSpace(Model.MixedColor))
+{
+    <div class="row">
+        <div class="col-lg-2">
+            <div style="height: 165px; width: 165px; background-color: @Model.PrimaryColor"></div>
+        </div>
+        <div class="col-lg-1" style="font-size:70px; text-align: center;">+</div>
+        <div class="col-lg-2">
+            <div style="height: 165px; width: 165px; background-color: @Model.SecondaryColor"></div>
+        </div>
+        <div class="col-lg-1" style="font-size:70px; text-align: center;">=</div>
+        <div class="col-lg-2">
+            <div style="height: 165px; width: 165px; background-color: @Model.MixedColor"></div>
+        </div>
+    </div>
+}
