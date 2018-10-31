@@ -22,7 +22,6 @@ namespace Homework4.Controllers
 
         [HttpPost]
         [Route("")]
-        // GET: Color/Details/5
         public ActionResult Post(ColorMixModel model)
         {
             if(string.IsNullOrWhiteSpace(model.PrimaryColor) || string.IsNullOrWhiteSpace(model.SecondaryColor))

@@ -17,15 +17,15 @@
 
     <script>
         $(function () {
-            $("#navImport").load("../nav.html");
+            $("#navImport").load(".../Images/nav.html");
         });
     </script>
 
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href=".../Images/styles.css">
 
     <script>
         $(document).ready(function () {
-            $("#homeLink").attr("href", "../index.html");
+            $("#homeLink").attr("href", ".../Images/index.html");
         });
     </script>
 
@@ -51,6 +51,23 @@
             <h6>Will we put anythere here today?</h6>
         </div>
         <div class="col-lg-9">
+                <h4>Quick and dirty MVC - The Goals</h4>
+                <p>Today I am pretty short on time so this is going to be a quick one. Today we are going to be taking our first pass at a basic MVC app. Very simple stuff. I completed the assignment without any issues so there wont be much to talk about.</p>
+                <h4>Start by converting</h4>
+                <p>I quickly started a new MVC project and the first thing I did was create the <code>Converter</code> method on the <code>HomeController</code>. Then I created a view for it and navigated there to make sure everything worked properly. Once I had confirmed that filled out the view and controller with the following:</p>
+                <img src="./Images/converterCode1.PNG" style="width:100%;"/>
+                <img src="./Images/converterCode1.PNG" style="width:100%;"/>
+                <h4>Finish by mixing</h4>
+                <p>I created a new controller and a view. After that I created a POST method on the controller to take in the color values as an input. I did this using a model class. I created a form on my view to capture the information. Finally, I added in the new color to the model and return it to the view. The view is then able to display the mixed color. Here is how it was done:</p>
+                <img src="./Images/mixerCode1.PNG" style="width:100%;"/>
+                <img src="./Images/mixerCode2.PNG" style="width:100%;"/>
+                <h4>The final product</h4>
+                <img src="./Images/Converter.PNG" style="width:100%;"/>
+                <img src="./Images/AddressBar.PNG" style="width:100%;"/>
+                <img src="./Images/ColorMixer.PNG" style="width:100%;"/>
+                <img src="./Images/MixWithValError.PNG" style="width:100%;"/>
+                <h4>Wrapping up</h4>
+                <p>Overall a simple assignment this time. It may have taken longer to write this than to complete the assignment.</p>
         </div>
     </div>
 </div>
