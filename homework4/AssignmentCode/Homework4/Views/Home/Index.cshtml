@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Hi</h1>
+    <p class="lead">Are you having a nice day?</p>
+    <p>
+        <button type="button" class="btn btn-success" onclick="alert('Excellent!')" >Doin Great!</button>
+        <button type="button" class="btn btn-warning" onclick="alert('Oh bummer.')" >Not so great.</button>
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Unit Converter</h2>
+        <p>
+            You can convert things. Yes, it is true. No, not a lot of things.
+        </p>
+        @Html.ActionLink("Convert Something", "Converter", "Home", null, new { @class = "btn btn-default" })
+    </div>
+    <div class="col-md-4">
+        <h2>Color Mixer</h2>
+        <p>Squish them together and what do you get?</p>
+        @Html.ActionLink("Squish Something", "Index", "Color", null, new { @class = "btn btn-default" })
+    </div>
+</div>
