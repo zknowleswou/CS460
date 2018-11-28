@@ -1,0 +1,59 @@
+﻿@model Homework5.DAL.Request
+
+@{
+    ViewBag.Title = "Create Request";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<h2>Create Request</h2>
+@using (Html.BeginForm("Create", "Request", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", @placeholder = "First Name", required = true })
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", @placeholder = "Last Name", required = true })
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control", @placeholder = "Phone Number", required = true })
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="apartmentName">Apartment Name</label>
+                @Html.TextBoxFor(x => x.ApartmentName, new { @class = "form-control", @placeholder = "Apartment", required = true })
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="unitNumber">Unit Number</label>
+                @Html.TextBoxFor(x => x.UnitNumber, new { @class = "form-control", @placeholder = "Unit", required = true })
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="descriptionOfIssue">Description of Issue</label>
+                @Html.TextAreaFor(x => x.DescriptionOfIssue, new { @class = "form-control", @placeholder = "Issue", required = true })
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="entrancePermission">I give permission for maintenence to enter</label>
+                @Html.CheckBoxFor(x => x.EntrancePermission, new { @class = "form-control", required = true })
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </div>
+
+}

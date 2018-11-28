@@ -1,0 +1,41 @@
+﻿@model List<Homework5.DAL.Request>
+
+@{
+    ViewBag.Title = "View Requests";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<h2>Requests</h2>
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Phone #</th>
+                    <th>Apartment</th>
+                    <th>Unit #</th>
+                    <th>Issue</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var request in Model)
+                {
+                    <tr>
+                        <td>@request.RequestId</td>
+                        <td>@request.FirstName</td>
+                        <td>@request.LastName</td>
+                        <td>@request.PhoneNumber</td>
+                        <td>@request.ApartmentName</td>
+                        <td>@request.UnitNumber</td>
+                        <td>@request.DescriptionOfIssue</td>
+                        <td>@request.CreateDate</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

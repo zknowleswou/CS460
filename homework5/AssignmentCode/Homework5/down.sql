@@ -1,0 +1,11 @@
+USE [aspnet-ConnectionString-00170b09-317b-498c-9342-e59bcc940760]
+GO
+
+DELETE FROM dbo.Request
+WHERE PhoneNumber IN (
+'1876572932'
+,'5439876763'
+,'9874356312'
+,'9932324356'
+,'2536476543'
+)
