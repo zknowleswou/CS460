@@ -1,0 +1,8 @@
+<h1 *ngIf="workout">
+  {{workout.name}}
+</h1>
+<div *ngIf="workout" class="list-group">
+  <a *ngFor="let day of workout.days"
+     class="list-group-item list-group-item-action"
+     routerLink="/track/{{workout.workoutId}}/day/{{day.dayId}}">{{day.name}}&nbsp;<span [hidden]="!day.hasIncompleteSession" class="badge badge-warning">Incomplete</span></a>
+</div>

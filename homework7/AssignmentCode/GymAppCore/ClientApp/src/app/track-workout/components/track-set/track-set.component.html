@@ -1,0 +1,56 @@
+<h5 *ngIf="setRecord">{{setRecord.name}}</h5>
+<div *ngIf="setRecord" class="row">
+  <div class="col-12">
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th>Goal</th>
+          <th>Completed</th>
+          <th>Adjust</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            {{setRecord.goalRepititions}} Reps
+          </td>
+          <td>
+            <span [hidden]="showRepsBox" (click)="showRepsChangeBox()">
+              {{setRecord.completedRepititions}} Reps
+            </span>
+            <input [hidden]="!showRepsBox" (blur)="hideRepsChangeBox()" class="form-control" id="completedReps"
+              [(ngModel)]="setRecord.completedRepititions">
+          </td>
+          <td>
+            <div class="btn-group btn-group-sm btn-group-vertical">
+              <button (click)="repUp()" type="button" class="btn">+</button>
+              <button (click)="repDown()" type="button" class="btn">-</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            {{setRecord.goalWeight}} lbs
+          </td>
+          <td>
+            <span [hidden]="showWeightBox" (click)="showWeightChangeBox()">
+              {{setRecord.completedWeight}} lbs
+            </span>
+            <input [hidden]="!showWeightBox" (blur)="hideWeightChangeBox()" class="form-control" id="completedWeight" 
+              [(ngModel)]="setRecord.completedWeight" />
+          </td>
+          <td>
+            <div class="btn-group btn-group-sm btn-group-vertical">
+              <button (click)="weightUp()" type="button" class="btn">+</button>
+              <button (click)="weightDown()" type="button" class="btn">-</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<hr />
+<div>
+  <app-set-timer *ngIf="setRecord" [setRecord]="setRecord"></app-set-timer>
+</div>

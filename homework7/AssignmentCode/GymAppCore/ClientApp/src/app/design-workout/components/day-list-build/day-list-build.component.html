@@ -1,0 +1,29 @@
+<div *ngIf="days">
+  <h3>Days</h3>
+  <div class="row">
+    <div class="col-lg-2" style="padding:20px 0 20px 0;">
+      <mat-slider *ngIf="days.length > 1" style="height:100%;" [min]="1" [max]="sliderLength" [disabled]="sliderDisabled || !activeDay"
+        step="1" [(ngModel)]="sliderValue" vertical invert (change)="updateOrder($event);"></mat-slider>
+
+    </div>
+    <div class="col-lg-10">
+      <mat-list>
+        <mat-list-item *ngFor="let day of days" >
+          <div>
+            <button [hidden]="renameId == day.dayId" mat-button color="{{getButtonColor(day)}}" (click)="onDayClicked(day)"
+              (dblclick)="rename(day)">{{day.name}}</button>
+
+            <mat-form-field class="example-full-width" [hidden]="renameId != day.dayId">
+              <input [(ngModel)]="day.name" (blur)="updateDay(day)" matInput id="dayId_{{day.dayId}}" placeholder="Day Name">
+            </mat-form-field>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <button mat-raised-button (click)="openDialog()">New</button>
+    </div>
+  </div>
+</div>

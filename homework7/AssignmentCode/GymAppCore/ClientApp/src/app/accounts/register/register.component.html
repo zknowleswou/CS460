@@ -1,0 +1,52 @@
+<app-nav-bar></app-nav-bar>
+<div class="container-fluid bg-light py-3">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="card card-body">
+          <h3 class="text-center mb-4">Sign-up</h3>
+          <div *ngIf="registerForm.dirty">
+            <div *ngIf="f.email.dirty">
+              <div [hidden]="!f.email.errors?.required" class="alert alert-danger">
+                Email is required.
+              </div>
+            </div>
+            <div *ngIf="f.password.dirty && f.confirmPassword.dirty && f.confirmPassword.touched">
+              <div [hidden]="!registerForm.errors?.notSame" class="alert alert-danger">
+                Passwords must match.
+              </div>
+            </div>
+            <div *ngFor="let error of errors">
+              <div class="alert alert-danger">
+                {{error.description}}
+              </div>
+            </div>
+          </div>
+          <fieldset>
+            <div class="form-group has-error">
+              <input class="form-control input-lg" formControlName="email" placeholder="E-mail Address" name="email"
+                type="email" required>
+            </div>
+            <div class="form-group has-success">
+              <input class="form-control input-lg" formControlName="password" placeholder="Password" name="password"
+                type="password" required>
+            </div>
+            <div class="form-group has-success">
+              <input class="form-control input-lg" formControlName="confirmPassword" placeholder="confirmPassword" name="confirmPassword"
+                type="password" required>
+            </div>
+            <div class="checkbox">
+              <label class="small">
+                <input formControlName="terms" name="terms" type="checkbox">I have read and agree to the <a routerLink="/terms">terms
+                  of service</a>
+              </label>
+            </div>
+            <div style="text-align: center;">
+              <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid || submitted">Sign Up</button>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
