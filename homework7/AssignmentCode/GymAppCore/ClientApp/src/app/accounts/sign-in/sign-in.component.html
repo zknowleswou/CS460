@@ -1,0 +1,27 @@
+<app-nav-bar></app-nav-bar>
+<div class="container-fluid bg-light py-3" style="min-height:100vh;">
+  <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="card card-body">
+          <h3 class="text-center mb-4">Sign In</h3>
+          <div *ngFor="let error of errors">
+            <div class="alert alert-danger">
+              {{error.description}}
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" formControlName="email" name="email" class="form-control" placeholder="Email" />
+          </div>
+          <div class="form-group">
+            <input type="password" formControlName="password" name="password" class="form-control" placeholder="Password" />
+          </div>
+          <div class="form-group" style="text-align: center;">
+            <button class="btn btn-primary" type="submit" [disabled]="!signInForm.valid || submitted" [hidden]="submitted">Sign In</button>
+            <img src="../../_images/loading.svg" [hidden]="!submitted"> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

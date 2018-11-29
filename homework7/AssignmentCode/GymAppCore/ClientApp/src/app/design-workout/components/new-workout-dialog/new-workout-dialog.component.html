@@ -1,0 +1,12 @@
+<mat-dialog-content>
+  <h4 mat-dialog-title>Name your workout</h4>
+    <mat-form-field>
+      <input matInput [(ngModel)]="workoutName" placeholder="Workout Name">
+    </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button [hidden]="creatingWorkout" (click)="createWorkout()" class="mat-raised-button mat-primary">Create</button>
+  <mat-spinner [diameter]="38" [hidden]="!creatingWorkout"></mat-spinner>
+</mat-dialog-actions>

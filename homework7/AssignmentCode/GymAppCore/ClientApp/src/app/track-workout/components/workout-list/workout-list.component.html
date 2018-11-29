@@ -1,0 +1,8 @@
+<h1>
+  Select Workout
+</h1>
+<div class="list-group">
+  <a *ngFor="let workout of workouts"
+     class="list-group-item list-group-item-action"
+     routerLink="/track/{{workout.workoutId}}">{{workout.name}}</a>
+</div>

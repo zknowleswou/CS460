@@ -1,0 +1,51 @@
+<div class="container" *ngIf="workout">
+  <div class="row">
+    <div class="col-lg-12" style="min-height:72px;">
+      <h1 style="margin-bottom:0px;" (dblclick)="rename()" [hidden]="renaming">{{workout.name}}</h1>
+      <mat-form-field class="example-full-width" [hidden]="!renaming">
+        <input [(ngModel)]="workout.name" (blur)="updateWorkout()" matInput id="workoutName" placeholder="Workout Name">
+      </mat-form-field>
+      <h4>Workout Builder</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3">
+      <app-day-list-build [allDays]="workout.days" [workoutId]="workout.workoutId" (daySet)="setActiveDay($event)"></app-day-list-build>
+    </div>
+    <div class="col-lg-3">
+      <app-exercise-list-build *ngIf="activeDay" [allExercises]="activeDay.exercises" [dayId]="activeDay.dayId"
+        (exerciseSet)="setActiveExercise($event)"></app-exercise-list-build>
+    </div>
+    <div class="col-lg-3">
+      <app-set-list-build *ngIf="activeExercise" [allSets]="activeExercise.sets" [exerciseId]="activeExercise.exerciseId"
+        (currentSetSet)="setActiveSet($event)"></app-set-list-build>
+    </div>
+    <div class="col-lg-3">
+      <app-set-details-build *ngIf="activeSet" [set]="activeSet" (applyAllClicked)="applyToAllSets($event)"></app-set-details-build>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">&nbsp;</div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Need help?
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <div>
+            <p>Double click the name in order to rename a workout/day/exercise/set.</p>
+            <p>Use the slider to adjust order.</p>
+            <p>rename to "delete" to delete the set/exercise/day.</p>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>

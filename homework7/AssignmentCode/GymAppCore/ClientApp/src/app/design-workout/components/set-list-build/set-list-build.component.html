@@ -1,0 +1,29 @@
+<div *ngIf="sets">
+  <h3>Sets</h3>
+  <div class="row">
+    <div class="col-lg-2" style="padding:20px 0 20px 0;">
+      <mat-slider *ngIf="sets.length > 1" style="height:100%;" [min]="1" [max]="sliderLength" [disabled]="sliderDisabled || !activeSet"
+        step="1" [(ngModel)]="sliderValue" vertical invert (change)="updateOrder($event);"></mat-slider>
+
+    </div>
+    <div class="col-lg-10">
+      <div>
+        <mat-list>
+          <mat-list-item *ngFor="let set of sets">
+            <button [hidden]="renameId == set.setId" mat-button color="{{getButtonColor(set)}}" (dblclick)="rename(set)"
+              (click)="onSetClicked(set)">{{set.name}}</button>
+            <mat-form-field class="example-full-width" [hidden]="renameId != set.setId">
+              <input [(ngModel)]="set.name" (blur)="updateSet(set)" matInput id="setId_{{set.setId}}"
+                placeholder="Set Name">
+            </mat-form-field>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <button mat-raised-button (click)="openDialog()">New</button>
+    </div>
+  </div>
+</div>

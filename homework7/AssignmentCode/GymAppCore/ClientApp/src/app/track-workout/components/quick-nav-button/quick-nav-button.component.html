@@ -1,0 +1,7 @@
+
+<div class="btn-group" ngbDropdown role="group">
+  <button class="btn btn-outline-info" ngbDropdownToggle>{{exercise.name}}</button>
+  <div class="dropdown-menu" ngbDropdownMenu>
+    <a *ngFor="let set of exercise.sets" class="dropdown-item" (click)="goTo(set)">{{set.name}}</a>
+  </div>
+</div>

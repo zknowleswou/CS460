@@ -1,0 +1,14 @@
+<form [formGroup]="newSetForm" (ngSubmit)="createSet()">
+  <mat-dialog-content>
+    <h4 mat-dialog-title>New Set</h4>
+    <mat-form-field>
+      <input matInput formControlName="setName" name="setName" placeholder="Set Name">
+    </mat-form-field>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button [hidden]="creatingSet" type="submit" class="mat-raised-button mat-primary">Create</button>
+    <mat-spinner [diameter]="38" [hidden]="!creatingSet"></mat-spinner>
+  </mat-dialog-actions>
+</form>

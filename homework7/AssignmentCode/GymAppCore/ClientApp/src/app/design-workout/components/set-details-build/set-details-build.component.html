@@ -1,0 +1,12 @@
+<form [formGroup]="updateSetForm" (ngSubmit)="updateSet()">
+
+  <mat-form-field>
+    <input matInput formControlName="weight" name="weight" placeholder="Weight">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="repititions" name="repititions" placeholder="Repititions">
+  </mat-form-field>
+  <button mat-raised-button color="primary" [hidden]="updateSetForm.pristine" type="submit">Update</button>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button mat-raised-button color="secondary" (click)="applyAll()" type="button">Apply All</button>
+</form>

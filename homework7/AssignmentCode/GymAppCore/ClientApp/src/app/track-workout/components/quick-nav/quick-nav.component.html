@@ -1,0 +1,11 @@
+<div class="container" style="margin-top:3px;">
+  <div class="row">
+    <div class="col-lg-12">
+      <div *ngIf="day">
+        <div>
+          <app-quick-nav-button *ngFor="let exercise of day.exercises" [exercise]="exercise" (goToSet)="onGoTo($event)"></app-quick-nav-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+  <a class="navbar-brand" href="#">Gym App</a>
+  <button class="navbar-toggler hidden-sm-up" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
+    &#9776;
+  </button>
+  <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarsDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/track" *ngIf="isUserSignedIn()" (click)="onLinkClicked()">Begin a workout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/design" *ngIf="isUserSignedIn()" (click)="onLinkClicked()">Design a workout</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLink="/signin" *ngIf="!isUserSignedIn()" (click)="onLinkClicked()">Sign In</a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/register" *ngIf="!isUserSignedIn()" (click)="onLinkClicked()">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="signOut()" *ngIf="isUserSignedIn()">Sign Out</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+

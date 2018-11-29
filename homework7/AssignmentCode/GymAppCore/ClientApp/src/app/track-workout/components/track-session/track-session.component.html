@@ -1,0 +1,19 @@
+<app-quick-nav [day]="day" (goToSet)="goToSet($event)"></app-quick-nav>
+<div class="container">
+  <div [hidden]="showFinishWorkout">
+    <h3 *ngIf="currentExercise">{{currentExercise.name}}</h3>
+    <app-track-set [setRecord]="currentSetRecord"></app-track-set>
+    <hr />
+    <div class="row">
+      <div class="col-6">
+        <button type="button" (click)="previousSet()" class="btn btn-default btn-block">Previous</button>
+      </div>
+      <div class="col-6">
+        <button type="button" (click)="nextSet()" class="btn btn-primary btn-block">Next</button>
+      </div>
+    </div>
+  </div>
+  <div [hidden]="!showFinishWorkout">
+    <app-finish-session [workoutSession]="workoutSession" (returnToCards)="previousSet()"></app-finish-session>
+  </div>
+</div>

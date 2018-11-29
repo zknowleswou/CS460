@@ -1,0 +1,14 @@
+<form [formGroup]="newExerciseForm" (ngSubmit)="createExercise()">
+    <mat-dialog-content>
+      <h4 mat-dialog-title>New Exercise</h4>
+      <mat-form-field>
+        <input matInput formControlName="exerciseName" name="exerciseName" placeholder="Exercise Name">
+      </mat-form-field>
+  
+    </mat-dialog-content>
+  
+    <mat-dialog-actions>
+      <button [hidden]="creatingExercise" type="submit" class="mat-raised-button mat-primary">Create</button>
+      <mat-spinner [diameter]="38" [hidden]="!creatingExercise"></mat-spinner>
+    </mat-dialog-actions>
+  </form>
